@@ -1,8 +1,2 @@
 #!/bin/bash
-
-if [ -z "$CFILE" ]; then
-    echo "CFILE variable is not set. Please set it to the name of your C file."
-    exit 1
-fi
-
-cpp "$CFILE" > c
+gcc -E "$CFILE" -o cc
