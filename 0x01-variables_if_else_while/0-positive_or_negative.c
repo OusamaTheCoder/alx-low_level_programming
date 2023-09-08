@@ -11,11 +11,11 @@ int main(void)
 {
 	int n;
 
-	srand(time(0)); /* Seed the random number generator */
+	srand(time(0));
 
-	n = rand() - RAND_MAX / 2; /* Generate a random number */
+	n = rand() - RAND_MAX / 2;
 
-	printf("%d is ", n); /* Print the random number */
+	printf("%d is ", n);
 
 	if (n > 0)
 	{
