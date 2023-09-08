@@ -52,5 +52,5 @@ To maintain code quality, you can use the `betty` linter, which ensures adherenc
 
 ---
 
-##Author: `Ousama Oujaber`
+## Author: `Ousama Oujaber`
 
