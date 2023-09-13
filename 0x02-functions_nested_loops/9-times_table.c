@@ -28,10 +28,10 @@ void times_table(void)
 			_putchar((product % 10) + '0');
 
 			if (col < 9)
-				_putchar('\t');
+				_putchar(',');
+			else
+				_putchar('\n');
 		}
-
-		_putchar('\n');
 	}
 }
 
