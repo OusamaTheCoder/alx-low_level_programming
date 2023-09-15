@@ -8,6 +8,23 @@
  */
 int _isupper(int c)
 {
-    return ((c >= 'A' && c <= 'Z') ? 1 : 0);
+	return ((c >= 'A' && c <= 'Z') ? 1 : 0);
+}
+
+int main(void)
+{
+	/* Example usage of _isupper function */
+	char character = 'A';
+
+	if (_isupper(character))
+	{
+		printf("%c is uppercase.\n", character);
+	}
+	else
+	{
+		printf("%c is not uppercase.\n", character);
+	}
+
+	return (0);
 }
 
