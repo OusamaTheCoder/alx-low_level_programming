@@ -1,6 +1,3 @@
-
-Certainly, here's a readme file template for the programs you provided:
-
 ---
 
 # 0x04. C - More Functions, More Nested Loops
