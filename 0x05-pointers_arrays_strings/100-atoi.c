@@ -1,5 +1,4 @@
-#include "main.h"
-#include <limits.h>
+#include <stdio.h>
 
 /**
  * _atoi - Converts a string to an integer.
@@ -7,37 +6,28 @@
  *
  * Return: The integer value of the input string.
  */
-int _atoi(char *s)
+void puts_half(char *str)
 {
-	int sign = 1;
-	int result = 0;
-	int i = 0;
-
-
-	while (s[i] == ' ')
-		i++;
-
-	if (s[i] == '-' || s[i] == '+')
-	{
-		if (s[i] == '-')
-			sign = -1;
-		i++;
-	}
-
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-
-		if (result > (INT_MAX - (s[i] - '0')) / 10)
-		{
-			if (sign == 1)
-				return (INT_MAX);
-			else
-				return (INT_MIN);
-		}
-		result = result * 10 + (s[i] - '0');
-		i++;
-	}
-
-	return (result * sign);
+    int len = 0;
+    int i = 0;
+    while (str[len] != '\0')
+    {
+        len++;
+    }
+    if (len % 2 == 0)
+    {
+        for (i = len / 2; i < len; i++)
+        {
+            putchar(str[i]);
+        }
+    }
+    else
+    {
+        for (i = (len / 2) + 1; i < len; i++)
+        {
+            putchar(str[i]);
+        }
+    }
+    putchar('\n');
 }
 
