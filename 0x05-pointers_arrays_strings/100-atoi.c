@@ -1,34 +1,34 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * _atoi - Converts a string to an integer.
- * @s: The input string.
+ * _atoi - converts a string to an integer
+ * @s: string to be converted
  *
- * Return: The integer value of the input string.
+ * Return: the int converted from the string
  */
-void puts_half(char *str)
+int _atoi(char *s)
 {
-    int len = 0;
+    int result = 0;
+    int sign = 1;
     int i = 0;
-    while (str[len] != '\0')
+
+    while (s[i] == ' ')
     {
-        len++;
+        i++;
     }
-    if (len % 2 == 0)
+
+    if (s[i] == '-')
     {
-        for (i = len / 2; i < len; i++)
-        {
-            putchar(str[i]);
-        }
+        sign = -1;
+        i++;
     }
-    else
+
+    while (s[i] >= '0' && s[i] <= '9')
     {
-        for (i = (len / 2) + 1; i < len; i++)
-        {
-            putchar(str[i]);
-        }
+        result = result * 10 + (s[i] - '0');
+        i++;
     }
-    putchar('\n');
+
+    return sign * result;
 }
 
