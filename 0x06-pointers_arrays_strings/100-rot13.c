@@ -8,13 +8,13 @@
 char *rot13(char *str)
 {
 	int i, j;
-	char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-	char rot13_alphabet[] =
+	char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot13_alphabet[] = 
 	"NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	for (i = 0; str[i]; i++)
 	{
-		for (j = 0; alphabet[j]; j++
+		for (j = 0; alphabet[j]; j++)
 		{
 			if (str[i] == alphabet[j])
 			{
