@@ -7,10 +7,10 @@
  */
 char *rot13(char *str)
 {
-	int i, j;
 	char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rot13_alphabet[] = 
-	"NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char rot13_alphabet[] =
+		"NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i, j;
 
 	for (i = 0; str[i]; i++)
 	{
@@ -23,6 +23,7 @@ char *rot13(char *str)
 			}
 		}
 	}
+
 	return (str);
 }
 
