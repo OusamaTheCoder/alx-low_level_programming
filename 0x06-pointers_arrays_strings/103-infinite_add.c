@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdio.h>
+#include <string.h>
 
 /**
  * infinite_add - Adds two numbers represented as strings
@@ -12,12 +14,14 @@
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int carry = 0;
-	int i = 0, j = 0, k = 0;
+	int i = strlen(n1) - 1;
+	int j = strlen(n2) - 1;
+	int k = 0;
 
-	while (n1[i] != '\0' || n2[j] != '\0' || carry)
+	while (i >= 0 || j >= 0 || carry)
 	{
-		int digit1 = (n1[i] != '\0') ? (n1[i] - '0') : 0;
-		int digit2 = (n2[j] != '\0') ? (n2[j] - '0') : 0;
+		int digit1 = (i >= 0) ? (n1[i] - '0') : 0;
+		int digit2 = (j >= 0) ? (n2[j] - '0') : 0;
 		int sum = digit1 + digit2 + carry;
 
 		carry = sum / 10;
@@ -29,13 +33,13 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		}
 		else
 		{
-			return (0);
+			return (NULL);
 		}
 
-		if (n1[i] != '\0')
-			i++;
-		if (n2[j] != '\0')
-			j++;
+		if (i >= 0)
+			i--;
+		if (j >= 0)
+			j--;
 	}
 
 	r[k] = '\0';
@@ -50,3 +54,4 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	return (r);
 }
+
