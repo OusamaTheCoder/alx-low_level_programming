@@ -7,5 +7,5 @@ _putchar.c
 4-strpbrk
 5-strstr
 8-print_diagsums
-
+100-set_string
 7-print_chessboard
