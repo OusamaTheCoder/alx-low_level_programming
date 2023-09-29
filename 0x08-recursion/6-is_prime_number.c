@@ -1,5 +1,6 @@
 #include "main.h"
 #include <math.h>
+#include <stdio.h>
 
 /**
  * is_divisible - Checks if a number is divisible.
@@ -23,7 +24,7 @@ int is_divisible(int n, int divisor)
  *
  * Return: 1 if n is prime, 0 otherwise.
  */
-int is_prime_number(int n) 
+int is_prime_number(int n)
 {
 	if (n <= 1)
 		return (0);
