@@ -1,38 +1,35 @@
 ---
 
-# 0x0A. malloc, free
+# 0x0A. C - argc, argv
 
 ---
 
-## C Programming - Dynamic Memory Allocation and Deallocation
+## C Programming - Command Line Arguments
 
 **Author**: `OusamaTheCoder`
 
-This repository contains C programs that demonstrate various concepts related to dynamic memory allocation and deallocation using `malloc` and `free`. These programs cover topics such as creating arrays, copying strings, concatenating strings, and working with 2-dimensional arrays.
+This repository contains C programs that demonstrate the use of command line arguments (`argc` and `argv`) in C programming. Each program focuses on a specific task that involves processing command line arguments.
 
 ## List of Programs
 
-### 0. Float like a butterfly, sting like a bee
-- This program includes a function `create_array` that creates an array of characters and initializes it with a specific character.
+### 0. It ain't what they call you, it's what you answer to
+- This program prints the name of the program itself.
 
-### 1. The woman who has no imagination has no wings
-- This program includes a function `_strdup` that returns a pointer to a newly allocated space in memory containing a copy of the given string.
+### 1. Silence is argument carried out by other means
+- This program prints the number of arguments passed into it.
 
-### 2. He who is not courageous enough to take risks will accomplish nothing in life
-- This program includes a function `str_concat` that concatenates two strings.
+### 2. The best argument against democracy is a five-minute conversation with the average voter
+- This program prints all the arguments it receives, each on a separate line.
 
-### 3. If you even dream of beating me you'd better wake up and apologize
-- This program includes a function `alloc_grid` that returns a pointer to a 2-dimensional array of integers.
+### 3. Neither irony nor sarcasm is argument
+- This program multiplies two numbers and prints the result. If the program doesn't receive two arguments, it prints an error message.
 
-### 4. It's not bragging if you can back it up
-- This program includes a function `free_grid` that frees a 2-dimensional grid previously created by `alloc_grid`.
+### 4. To infinity and beyond
+- This program adds positive numbers and prints the result. If the program doesn't receive any numbers or encounters non-digit symbols, it prints an error message.
 
-### 5. It isn't the mountains ahead to climb that wear you out; it's the pebble in your shoe
-- This program includes a function `argstostr` that concatenates all the arguments of the program.
+### 5. Minimal Number of Coins for Change (Advanced)
+- This program calculates the minimum number of coins required to make change for a given amount of money in cents.
 
-### 6. I will show you how great I am
-- This program includes a function `strtow` that splits a string into words.
-
-Enjoy exploring these C programs related to dynamic memory allocation and deallocation!
+Enjoy exploring these C programs related to command line arguments!
 
 ---
