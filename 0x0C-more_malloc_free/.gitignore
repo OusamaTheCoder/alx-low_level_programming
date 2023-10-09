@@ -5,3 +5,4 @@ _putchar.c
 *.swp
 a
 100-realloc
+101-mul
