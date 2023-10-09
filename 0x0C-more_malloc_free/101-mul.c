@@ -1,149 +1,102 @@
-#define _POSIX_C_SOURCE 200809L
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
+
+#define ERR_MSG "Error"
 
 /**
- * is_digit - checks if a string contains only digits
+ * is_digit - checks if a string contains a non-digit char
  * @s: string to be evaluated
  *
- * Return: 1 if all characters are digits, 0 otherwise
+ * Return: 0 if a non-digit is found, 1 otherwise
  */
-int is_digit(const char *s)
+int is_digit(char *s)
 {
-	while (*s)
+	int i = 0;
+
+	while (s[i])
 	{
-		if (*s < '0' || *s > '9')
+		if (s[i] < '0' || s[i] > '9')
 			return (0);
-		s++;
+		i++;
 	}
 	return (1);
 }
 
 /**
- * reverse_string - reverses a string
- * @str: string to be reversed
+ * _strlen - returns the length of a string
+ * @s: string to evaluate
+ *
+ * Return: the length of the string
  */
-void reverse_string(char *str)
+int _strlen(char *s)
 {
-	int len = strlen(str);
-	int i, j;
-	char temp;
+	int i = 0;
 
-	for (i = 0, j = len - 1; i < j; i++, j--)
+	while (s[i] != '\0')
 	{
-		temp = str[i];
-		str[i] = str[j];
-		str[j] = temp;
+		i++;
 	}
+	return (i);
 }
 
 /**
- * calculate_product - calculates the product of two reversed numbers
- * @s1: first reversed number as a string
- * @s2: second reversed number as a string
- * @result: array to store the result
- *
- * This function calculates the product of two reversed numbers represented as
- * strings and stores the result in the 'result' array.
+ * errors - handles errors for main
  */
-void calculate_product(const char *s1, const char *s2, int *result)
+void errors(void)
 {
-	int len1 = strlen(s1);
-	int len2 = strlen(s2);
-
-	for (int i = 0; i < len1; i++)
-	{
-		int carry = 0;
-
-		for (int j = 0; j < len2; j++)
-		{
-			int product = (s1[i] - '0') * (s2[j] - '0') + result[i + j] + carry;
-
-			carry = product / 10;
-			result[i + j] = product % 10;
-		}
-		result[i + len2] += carry;
-	}
+	printf("Error\n");
+	exit(98);
 }
 
 /**
- * create_result_string - creates a string from the result array
- * @result: array storing the result
- * @len: length of the result array
+ * main - multiplies two positive numbers
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
- * This function creates a string from the 'result' array and returns it.
- * The 'len' parameter indicates the length of the result array.
- *
- * Return: A dynamically allocated string containing the result.
- *         The caller is responsible for freeing the memory.
+ * Return: always 0 (Success)
  */
-char *create_result_string(const int *result, int len)
+int main(int argc, char *argv[])
 {
-	while (len > 0 && result[len - 1] == 0)
-		len--;
+	char *s1, *s2;
+	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
 
-	char *resultStr = malloc(len + 1);
-
-	if (!resultStr)
-	{
-		perror("Memory allocation failed");
-		exit(1);
-	}
-
-	for (int i = 0; i < len; i++)
-		resultStr[i] = result[i] + '0';
-
-	resultStr[len] = '\0';
-	reverse_string(resultStr);
-
-	return (resultStr);
-}
-
-/**
- * multiply - multiplies two positive numbers represented as strings
- * @s1: first number as a string
- * @s2: second number as a string
- *
- * Return: result as a string
- */
-char *multiply(const char *s1, const char *s2)
-{
-	if (!is_digit(s1) || !is_digit(s2))
-		return ("Error");
-
-	int len1 = strlen(s1);
-	int len2 = strlen(s2);
-	int len = len1 + len2;
-	int *result = calloc(len, sizeof(int));
-
+	s1 = argv[1], s2 = argv[2];
+	if (argc != 3 || !is_digit(s1) || !is_digit(s2))
+		errors();
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	len = len1 + len2 + 1;
+	result = malloc(sizeof(int) * len);
 	if (!result)
+		return (1);
+	for (i = 0; i <= len1 + len2; i++)
+		result[i] = 0;
+	for (len1 = len1 - 1; len1 >= 0; len1--)
 	{
-		perror("Memory allocation failed");
-		exit(1);
+		digit1 = s1[len1] - '0';
+		carry = 0;
+		for (len2 = _strlen(s2) - 1; len2 >= 0; len2--)
+		{
+			digit2 = s2[len2] - '0';
+			carry += result[len1 + len2 + 1] + (digit1 * digit2);
+			result[len1 + len2 + 1] = carry % 10;
+			carry /= 10;
+		}
+		if (carry > 0)
+			result[len1 + len2 + 1] += carry;
 	}
-
-	char *temp1 = strdup(s1);
-	char *temp2 = strdup(s2);
-
-	if (!temp1 || !temp2)
+	for (i = 0; i < len - 1; i++)
 	{
-		perror("Memory allocation failed");
-		exit(1);
+		if (result[i])
+			a = 1;
+		if (a)
+			_putchar(result[i] + '0');
 	}
-
-	reverse_string(temp1);
-	reverse_string(temp2);
-
-	calculate_product(temp1, temp2, result);
-
-	char *resultStr = create_result_string(result, len);
-
+	if (!a)
+		_putchar('0');
+	_putchar('\n');
 	free(result);
-	free(temp1);
-	free(temp2);
-
-	return (resultStr);
+	return (0);
 }
 
