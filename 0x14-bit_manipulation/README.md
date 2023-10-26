@@ -74,7 +74,7 @@ $ ./crackme3 `cat 101-password`
 Congratulations!
 ```
 
-Explore the C programs in this repository to enhance your understanding of bit manipulation and improve your programming skills.
+### Explore the C programs in this repository to enhance your understanding of bit manipulation and improve your programming skills.
 ---
-Feel free to collaborate and contribute to this project. Happy coding!
+### Feel free to collaborate and contribute to this project. Happy coding!
 ---
