@@ -1,5 +1,5 @@
 ---
-# 0x14. Binary
+# 0x14. C - Bit manipulation
 ---
 ## C Programming - Bit Manipulation
 
