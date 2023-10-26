@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 
+int _putchar(char c);
+
 /* Converts a binary string to an unsigned integer */
 unsigned int binary_to_uint(const char *b);
 
