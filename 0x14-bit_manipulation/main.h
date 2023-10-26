@@ -18,12 +18,10 @@ int set_bit(unsigned long int *n, unsigned int index);
 /* Sets the value of a bit to 0 at a given index */
 int clear_bit(unsigned long int *n, unsigned int index);
 
-/* Counts the number of bits that need to be flipped to transition from one
- * number to another */
+/*  Counts bit flips to change numbers */
 unsigned int flip_bits(unsigned long int n, unsigned long int m);
 
-/* Checks the endianness of the system
- * (0 for big endian, 1 for little endian) */
+/* Checks the endianness of the system */
 int get_endianness(void);
 
 #endif /* MAIN_H */
