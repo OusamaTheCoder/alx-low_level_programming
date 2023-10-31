@@ -15,5 +15,9 @@ int append_text_to_file(const char *filename, char *text_content);
 /* 3. cp */
 int cp(const char *file_from, const char *file_to);
 
+/* 4. elf */
+int elf_header(const char *elf_filename);
+int main(int argc, char *argv[]);
+
 #endif /* MAIN_H */
 
